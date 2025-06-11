@@ -48,10 +48,11 @@ output "ephemeralasnull_output" {
   value = ephemeralasnull(var.ephemeral_var)
 }
 
-output "ephemeral_output" {
-  value = var.ephemeral_var
-  ephemeral = true
-}
+# not allowed
+# output "ephemeral_output" {
+#   value = var.ephemeral_var
+#   ephemeral = true
+# }
 
 output "normal_output" {
   value = var.normal_var
