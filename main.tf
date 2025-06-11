@@ -57,5 +57,6 @@ output "normal_output" {
 }
 
 output "sensitive_output" {
-  value = var.sensitive_var
+  value     = var.sensitive_var
+  sensitive = true
 }
