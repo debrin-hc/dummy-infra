@@ -26,3 +26,13 @@ resource "random_string" "random" {
   override_special = "/@£$"
 }
 
+variable "example" {
+  type      = string
+  default   = "test"
+  ephemeral = true
+}
+
+# This output returns null.
+output "example_output" {
+  value       = ephemeralasnull(var.example)
+}
