@@ -1,16 +1,16 @@
 terraform {
-  cloud { 
-    hostname = "app.staging.terraform.io" 
-    organization = "stacks-varset" 
+  cloud {
+    hostname     = "app.staging.terraform.io"
+    organization = "stacks-varset"
 
-    workspaces { 
-      name = "dummy-infra" 
-    } 
+    workspaces {
+      name = "dummy-infra"
+    }
   }
 
   required_providers {
     random = {
-      source = "hashicorp/random"
+      source  = "hashicorp/random"
       version = "3.7.2"
     }
   }
@@ -26,13 +26,36 @@ resource "random_string" "random" {
   override_special = "/@£$"
 }
 
-variable "example" {
+variable "ephemeral_var" {
   type      = string
   default   = "test"
   ephemeral = true
 }
 
+variable "normal_var" {
+  type    = string
+  default = "test"
+}
+
+variable "sensitive_var" {
+  type      = string
+  default   = "test"
+  sensitive = true
+}
+
 # This output returns null.
-output "example_output" {
-  value       = ephemeralasnull(var.example)
+output "ephemeralasnull_output" {
+  value = ephemeralasnull(var.ephemeral_var)
+}
+
+output "ephemeral_output" {
+  value = var.var.ephemeral_var
+}
+
+output "normal_output" {
+  value = var.normal_var
+}
+
+output "sensitive_output" {
+  value = var.sensitive_var
 }
