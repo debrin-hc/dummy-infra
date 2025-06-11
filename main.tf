@@ -50,6 +50,7 @@ output "ephemeralasnull_output" {
 
 output "ephemeral_output" {
   value = var.ephemeral_var
+  ephemeral = true
 }
 
 output "normal_output" {
